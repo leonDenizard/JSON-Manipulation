@@ -16,18 +16,19 @@ async function loadData(){
             
             const thProdutos = document.createElement('td')
             thProdutos.textContent = p.nome
+            thProdutos.classList.add('produtos')
             row.appendChild(thProdutos)
 
             const thPrecoCompra = document.createElement('td')
-            thPrecoCompra.innerText = `R$: ${p.preco_compra}`
+            thPrecoCompra.innerText = `R$: ${p.preco_compra},00`
             row.appendChild(thPrecoCompra)
 
             const thPrecoVenda = document.createElement('td')
-            thPrecoVenda.textContent = `R$: ${p.preco_venda}`
+            thPrecoVenda.textContent = `R$: ${p.preco_venda},00`
             row.appendChild(thPrecoVenda)
 
-            const thDataCompra = document.createElement('th')
-            thDataCompra.innerText = p.data_compra
+            const thDataCompra = document.createElement('td')
+            thDataCompra.innerText = converteData(p.data_compra)
             row.appendChild(thDataCompra)
 
             tableBody.appendChild(row)
@@ -42,3 +43,12 @@ async function loadData(){
     }
 }
 loadData()
+
+function converteData(data){
+
+    const [ano, mes, dia] = data.split('-')
+
+    const dataFormatada = `${dia}/${mes}/${ano}`
+
+    return dataFormatada
+}
