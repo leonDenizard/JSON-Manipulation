@@ -1,0 +1,61 @@
+:root{
+    --primary-color: #f7f7ff;
+    --secundary-color: #e5e5e5;
+    --text-color: #1b1b1b;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    color: #fff;
+    font-family: 'Poppins';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 8em;
+}
+h1{
+    font-size: 4em;
+    text-align: center;
+    color: var(--text-color);
+    background: linear-gradient(to right, #3c096c,#5a189a, #ff9e00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.9;
+    
+}
+section{
+    
+    position: relative;
+    min-height: 50vh;
+    min-width: 95vw;
+    max-width: 95vw;
+    background-color: var(--secundary-color);
+    padding: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #000;
+    
+}
+table{
+    min-width: 250px;
+    padding: 2em;
+    background-color: var(--primary-color);
+}
+table thead tr{
+    border-bottom: 1px solid #1b1b1b;
+}
+table thead tr th{
+    height: 50px;
+    font-size: 1.1em;
+    text-align: start;    
+    width: 25%;
+}

@@ -1,0 +1,76 @@
+{
+    "produtos": [
+      {
+        "nome": "Smartphone Samsung Galaxy S21",
+        "preco_compra": 3000.00,
+        "data_compra": "2022-01-01",
+        "preco_venda": 4000.00
+      },
+      {
+        "nome": "Notebook Dell Inspiron 15",
+        "preco_compra": 5000.00,
+        "data_compra": "2022-02-10",
+        "preco_venda": 6000.00
+      },
+      {
+        "nome": "Smartwatch Apple Watch Series 7",
+        "preco_compra": 2000.00,
+        "data_compra": "2022-03-15",
+        "preco_venda": 2500.00
+      },
+      {
+        "nome": "Smart TV LG OLED 65",
+        "preco_compra": 8000.00,
+        "data_compra": "2022-04-20",
+        "preco_venda": 9000.00
+      },
+      {
+        "nome": "Console de videogame Playstation 5",
+        "preco_compra": 3500.00,
+        "data_compra": "2022-05-25",
+        "preco_venda": 4000.00
+      },
+      {
+        "nome": "Câmera fotográfica Sony Alpha a7 III",
+        "preco_compra": 6000.00,
+        "data_compra": "2022-06-30",
+        "preco_venda": 7000.00
+      },
+      {
+        "nome": "Fones de ouvido sem fio Bose QuietComfort Earbuds",
+        "preco_compra": 1000.00,
+        "data_compra": "2022-07-01",
+        "preco_venda": 1200.00
+      },
+      {
+        "nome": "Roteador Wi-Fi Asus RT-AX82U",
+        "preco_compra": 800.00,
+        "data_compra": "2022-08-05",
+        "preco_venda": 1000.00
+      },
+      {
+        "nome": "Tablet Apple iPad Pro",
+        "preco_compra": 4000.00,
+        "data_compra": "2022-09-10",
+        "preco_venda": 4500.00
+      },
+      {
+        "nome": "Monitor gamer Asus TUF Gaming VG27AQ",
+        "preco_compra": 3500.00,
+        "data_compra": "2022-10-15",
+        "preco_venda": 4000.00
+      },
+      {
+        "nome": "Impressora multifuncional HP OfficeJet Pro 9015e",
+        "preco_compra": 1500.00,
+        "data_compra": "2022-11-20",
+        "preco_venda": 1700.00
+      },
+      {
+        "nome": "Teclado mecânico gamer Corsair K100 RGB",
+        "preco_compra": 800.00,
+        "data_compra": "2022-12-25",
+        "preco_venda": 1000.00
+      }
+    ]
+}
