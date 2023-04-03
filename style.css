@@ -45,12 +45,10 @@ h1{
     align-items: center;
     gap: 10px;
     border-radius: 50px;
-
 }
 .material-symbols-outlined{
     scale: 1.5;
     color: var(--text-color);
-
 }
 
 input{

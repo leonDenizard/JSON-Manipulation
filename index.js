@@ -1,5 +1,6 @@
 const section = document.querySelector('section')
 const tableBody = document.querySelector('table tbody')
+const inputSearch = document.querySelector('#search')
 
 async function loadData(){
     try{
@@ -52,3 +53,31 @@ function converteData(data){
 
     return dataFormatada
 }
+
+function searchProduto(produtos, query){
+    //console.log(produtos, query)
+    return produtos.filter(produtos => produtos.nome.toLowerCase().includes(query.toLowerCase()))
+}
+
+async function handleInputChange(){
+    const response = await fetch('produtos.json')
+    const data = await response.json()
+
+    const produtos = data.produtos
+    const query = inputSearch.value
+
+    const produtosFiltrado = searchProduto(produtos, query)
+
+    let html = ''
+
+    for(const produto of produtosFiltrado){
+      
+        html += `<tr><td>${produto.nome}</td><td>R$: ${produto.preco_compra},00</td><td>R$: ${produto.preco_venda},00</td><td>${converteData(produto.data_compra)}</td></tr>`
+    }
+
+    tableBody.innerHTML = html
+}
+
+inputSearch.addEventListener('input', handleInputChange)
+
+loadData()
