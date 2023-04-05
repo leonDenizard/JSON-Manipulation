@@ -92,6 +92,7 @@ div.opcoes{
     padding: 20px;
     z-index: 1;
     opacity: 0;
+    border: 1px solid var(--primary-color);
 }
 
 div.opcoes::before{
@@ -124,6 +125,7 @@ div.opcoes > ul > li{
 
 }
 div.opcoes.active{
+    transition: opacity 0.5s ease-in-out;
     opacity: 1;
 }
 

@@ -84,9 +84,14 @@ inputSearch.addEventListener('input', handleInputChange)
 
 loadData()
 
-function visibilityFilter(){
 
-    divOpcoes.classList.toggle('active')
-
-}
-btnFilter.addEventListener('click', visibilityFilter)
+btnFilter.addEventListener('click', event => {
+    event.stopPropagation();
+    divOpcoes.classList.toggle('active');
+});
+  
+document.body.addEventListener('click', event => {
+    if (!divOpcoes.contains(event.target)) {
+      divOpcoes.classList.remove('active');
+    }
+});
