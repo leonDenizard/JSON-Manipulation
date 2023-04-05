@@ -71,6 +71,78 @@
         "preco_compra": 800.00,
         "data_compra": "2022-12-25",
         "preco_venda": 1000.00
+      },
+      {
+        "nome": "Smartphone OnePlus 10",
+        "preco_compra": 3200.00,
+        "data_compra": "2023-01-03",
+        "preco_venda": 4200.00
+      },
+      {
+        "nome": "Notebook HP Spectre x360",
+        "preco_compra": 6000.00,
+        "data_compra": "2023-02-13",
+        "preco_venda": 7000.00
+      },
+      {
+        "nome": "Smartwatch Garmin Venu 2S",
+        "preco_compra": 1500.00,
+        "data_compra": "2023-03-18",
+        "preco_venda": 1800.00
+      },
+      {
+        "nome": "Smart TV Sony Bravia XR",
+        "preco_compra": 10000.00,
+        "data_compra": "2023-04-23",
+        "preco_venda": 11000.00
+      },
+      {
+        "nome": "Console de videogame Xbox Series X",
+        "preco_compra": 4000.00,
+        "data_compra": "2023-05-28",
+        "preco_venda": 4500.00
+      },
+      {
+        "nome": "Câmera fotográfica Canon EOS R5",
+        "preco_compra": 8000.00,
+        "data_compra": "2023-06-30",
+        "preco_venda": 9000.00
+      },
+      {
+        "nome": "Fones de ouvido sem fio Sony WF-1000XM4",
+        "preco_compra": 1200.00,
+        "data_compra": "2023-07-05",
+        "preco_venda": 1400.00
+      },
+      {
+        "nome": "Roteador Wi-Fi TP-Link Archer AX90",
+        "preco_compra": 1000.00,
+        "data_compra": "2023-08-10",
+        "preco_venda": 1200.00
+      },
+      {
+        "nome": "Tablet Samsung Galaxy Tab S8",
+        "preco_compra": 4500.00,
+        "data_compra": "2023-09-15",
+        "preco_venda": 5000.00
+      },
+      {
+        "nome": "Monitor LG Ultragear 38GN950",
+        "preco_compra": 9000.00,
+        "data_compra": "2023-10-20",
+        "preco_venda": 10000.00
+      },
+      {
+        "nome": "Impressora a laser Brother HL-L3270CDW",
+        "preco_compra": 1200.00,
+        "data_compra": "2023-11-25",
+        "preco_venda": 1400.00
+      },
+      {
+        "nome": "Teclado mecânico Razer Huntsman Elite",
+        "preco_compra": 1200.00,
+        "data_compra": "2023-12-30",
+        "preco_venda": 1400.00
       }
     ]
 }

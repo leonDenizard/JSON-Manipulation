@@ -1,6 +1,8 @@
 const section = document.querySelector('section')
 const tableBody = document.querySelector('table tbody')
 const inputSearch = document.querySelector('#search')
+const btnFilter = document.querySelector('#filter')
+const divOpcoes = document.querySelector('.opcoes')
 
 async function loadData(){
     try{
@@ -81,3 +83,10 @@ async function handleInputChange(){
 inputSearch.addEventListener('input', handleInputChange)
 
 loadData()
+
+function visibilityFilter(){
+
+    divOpcoes.classList.toggle('active')
+
+}
+btnFilter.addEventListener('click', visibilityFilter)
