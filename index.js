@@ -6,6 +6,7 @@ const btnFilter = document.querySelector('#filter')
 const divOpcoes = document.querySelector('.opcoes')
 //radio button [A-Z]
 const radioOrdenarAz = document.querySelector('#ordenarAz')
+const radioOrdenaMenorPreco = document.querySelector('#ordenaMenorPreco')
 
 async function loadData(){
     try{
@@ -130,3 +131,41 @@ async function ordenarAz() {
     tableBody.innerHTML = html
     // console.log(produtos);
   }
+
+
+//adcionando o evento no radioButton 
+radioOrdenarAz.addEventListener('click', ordenarAz)
+
+//função que ordena pelo menor preço
+async function ordernaMenorPreco(){
+
+    const response = await fetch('produtos.json')
+    const data = await response.json()
+
+    const produtos = data.produtos
+
+    produtos.sort((a, b) => {
+        if(a.preco_compra < b.preco_compra){
+            return -1
+        }
+        if(a.preco_compra > b.preco_compra){
+            return 1
+        }
+        return 0
+    })
+
+
+    let html = ''
+
+    for(const produto of produtos){
+      
+        html += `<tr><td>${produto.nome}</td><td>R$: ${produto.preco_compra},00</td><td>R$: ${produto.preco_venda},00</td><td>${converteData(produto.data_compra)}</td></tr>`
+    }
+
+    tableBody.innerHTML = html
+    //console.log(produtos)
+
+}
+
+//adicionando evento para ordenar pelo menor preço
+radioOrdenaMenorPreco.addEventListener('click', ordernaMenorPreco)
