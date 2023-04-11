@@ -29,11 +29,11 @@ async function loadData(){
             row.appendChild(thProdutos)
 
             const thPrecoCompra = document.createElement('td')
-            thPrecoCompra.innerText = `R$: ${p.preco_compra},00`
+            thPrecoCompra.innerText = `${p.preco_compra.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`
             row.appendChild(thPrecoCompra)
 
             const thPrecoVenda = document.createElement('td')
-            thPrecoVenda.textContent = `R$: ${p.preco_venda},00`
+            thPrecoVenda.textContent = `${p.preco_venda.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`
             row.appendChild(thPrecoVenda)
 
             const thDataCompra = document.createElement('td')
@@ -83,7 +83,8 @@ async function handleInputChange(){
 
     for(const produto of produtosFiltrado){
       
-        html += `<tr><td>${produto.nome}</td><td>R$: ${produto.preco_compra},00</td><td>R$: ${produto.preco_venda},00</td><td>${converteData(produto.data_compra)}</td></tr>`
+        html += `<tr><td>${produto.nome}</td><td>R$: ${produto.preco_compra.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})},00</td>
+        <td>R$: ${produto.preco_venda.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})},00</td><td>${converteData(produto.data_compra)}</td></tr>`
     }
 
     tableBody.innerHTML = html
@@ -127,7 +128,10 @@ async function ordenarAz() {
 
     for(const produto of produtos){
       
-        html += `<tr><td>${produto.nome}</td><td>R$: ${produto.preco_compra},00</td><td>R$: ${produto.preco_venda},00</td><td>${converteData(produto.data_compra)}</td></tr>`
+        html += `<tr><td>${produto.nome}</td>
+        <td>${produto.preco_compra.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
+        <td>${produto.preco_venda.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
+        </td><td>${converteData(produto.data_compra)}</td></tr>`
     }
 
     tableBody.innerHTML = html
@@ -161,7 +165,10 @@ async function ordernaMenorPreco(){
 
     for(const produto of produtos){
       
-        html += `<tr><td>${produto.nome}</td><td>R$: ${produto.preco_compra},00</td><td>R$: ${produto.preco_venda},00</td><td>${converteData(produto.data_compra)}</td></tr>`
+        html += `<tr><td>${produto.nome}</td>
+        <td>${produto.preco_compra.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
+        <td>${produto.preco_venda.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
+        </td><td>${converteData(produto.data_compra)}</td></tr>`
     }
 
     tableBody.innerHTML = html
@@ -189,7 +196,10 @@ async function ordenaMaiorPreco(){
    let html = ''
 
    for(const produto of produtos){
-        html += `<tr><td>${produto.nome}</td><td>R$: ${produto.preco_compra},00</td><td>R$: ${produto.preco_venda},00</td><td>${converteData(produto.data_compra)}</td></tr>`
+    html += `<tr><td>${produto.nome}</td>
+    <td>${produto.preco_compra.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
+    <td>${produto.preco_venda.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
+    </td><td>${converteData(produto.data_compra)}</td></tr>`
    }
 
    tableBody.innerHTML = html
