@@ -8,6 +8,7 @@ const divOpcoes = document.querySelector('.opcoes')
 const radioOrdenarAz = document.querySelector('#ordenarAz')
 const radioOrdenaMenorPreco = document.querySelector('#ordenaMenorPreco')
 const radioOrdenaMaiorPreco = document.querySelector('#ordenaMaiorPreco')
+const wrapperResult = document.querySelectorAll('.wrapper-result')
 
 async function loadData(){
     try{
@@ -195,3 +196,10 @@ async function ordenaMaiorPreco(){
 }
 
 radioOrdenaMaiorPreco.addEventListener('click', ordenaMaiorPreco)
+
+//
+wrapperResult.forEach(r =>{
+    r.addEventListener('click', ()=>{
+        r.classList.toggle('active')
+    })
+})
