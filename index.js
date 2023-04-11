@@ -197,9 +197,41 @@ async function ordenaMaiorPreco(){
 
 radioOrdenaMaiorPreco.addEventListener('click', ordenaMaiorPreco)
 
-//
+//percorrendo todas as divs que possuem a classe wrapper-result e aplcando uma classe active para criar a transição
 wrapperResult.forEach(r =>{
     r.addEventListener('click', ()=>{
         r.classList.toggle('active')
+        if(r.classList.contains('active')){
+            calculaFaturamento()
+        }
     })
 })
+
+//função responsavel por calcular a soma de todos produtos faturados
+
+async function calculaFaturamento(){
+    
+    const response = await fetch('produtos.json')
+    const data = await response.json()
+
+    const produtos = data.produtos
+
+
+
+    const totalFaturado = produtos.reduce((accumulator,valor) =>{
+        return accumulator + valor.preco_venda
+    }, 0)
+
+    let valorAtual = 0;
+    const intervalo = setInterval(()=>{
+        valorAtual += totalFaturado / 500;
+        if(valorAtual >= totalFaturado) {
+            clearInterval(intervalo);
+        }
+        const totalFaturadoFormatado = valorAtual.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+        const resultH3 = document.getElementById('result');
+        resultH3.innerText = totalFaturadoFormatado;
+    }, 5)
+    
+}
+
