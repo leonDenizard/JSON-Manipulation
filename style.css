@@ -211,7 +211,7 @@ td{
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    height: 290px;
+    height: 500px;
 }
 .container-result .wrapper-result{
     padding: 2em;
@@ -227,7 +227,7 @@ td{
 }
 
 .container-result .wrapper-result.active{
-    max-height: 100%;
+    max-height: 150%;
 }
 .container-result .wrapper-result h2{
     font-family: 'Poppins';
@@ -237,9 +237,34 @@ td{
 }
 
 .container-result .wrapper-result .result{
-
     margin-top: 40px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
+.container-result .wrapper-result .result .progress-bar{
+    position: relative;
+    width: 6em;
+    height: 6em;
+    display: grid;
+    place-items: center;
+    background-color: var(--secundary-color);
+    background: linear-gradient(#5a189a, #ff9e00);
+    border-radius: 50%;
+
+}
+.container-result .wrapper-result .result .progress-bar::before{
+    content: "";
+    position: absolute;
+    width: 4.5em;
+    height: 4.5em;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+.container-result .wrapper-result .result .progress-bar > span{
+    font-size: 0.9em;
+    position: relative;
+    font-weight: 600;
+    color: rgba(0,0,0,0.6);
+}

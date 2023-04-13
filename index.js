@@ -248,6 +248,18 @@ async function calculaFaturamento(index){
         const totalFaturadoFormatado = valorAtual.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
         const resultH3 = document.getElementById('total-faturado');
         resultH3.innerText = totalFaturadoFormatado;
+
+        const progressFatuardo = document.querySelector('.linear-faturado')
+        progressFatuardo.style.backgroundImage = `conic-gradient(
+            #5a189a ${valorAtual * 0/ totalFaturado}%,
+            #ff9e00 ${valorAtual * 60/ totalFaturado}%,
+            #5a189a ${valorAtual * 85/ totalFaturado }%,
+            #e5e5e5 0%)`;
+
+        const progressValue = document.querySelector('#progress-faturado')
+        
+        const progressInner = `${(totalFaturado / 1000).toFixed(1)} mil`
+        progressValue.innerText = progressInner
     }, 5)
     
 }
@@ -279,6 +291,22 @@ async function calcularLucroLiquido(index){
         const lucroTotalFormatado = valorAtual.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
         const h3LuroLiquido = document.getElementById('lucro-liquido')
         h3LuroLiquido.innerText = lucroTotalFormatado
+
+        const progressBarLiquido  = document.querySelector('.linear-liquido')
+        progressBarLiquido.style.backgroundImage = `conic-gradient(
+            #5a189a ${valorAtual * 0/ lucroTotal}%,
+            #ff9e00 ${valorAtual * 20/ lucroTotal}%,
+            #5a189a ${valorAtual * 30/ lucroTotal }%,
+            #e5e5e5 0%)`;
+
+            //#5a189a ${valorAtual * 7/ percentual}%,
+        const progressValue = document.querySelector('#progress-liquido')
+        
+        const progressInner = `${(valorAtual / 1000).toFixed(1)} mil`
+
+        progressValue.innerText = progressInner
+        
+
     })
     
 }
@@ -313,6 +341,24 @@ async function calculaPorcentagemLucro(index){
         const percentualFormatodo = valorAtual.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
         const h3percentual = document.getElementById('percentual-de-lucro')
         h3percentual.innerText = `% ${percentualFormatodo}`
+
+        //atualizando o progressBar
+        const progressBar = document.querySelector('.linear-lucro')
+        progressBar.style.backgroundImage = `conic-gradient(
+            #5a189a ${valorAtual * 0/ percentual}%,
+            #ff9e00 ${valorAtual * 14/ percentual}%,
+            #e5e5e5 0%)`;
+
+            //#5a189a ${valorAtual * 7/ percentual}%,
+
+        // atualiza o valor da div com a classe 'progress-value'
+        const progressValue = document.querySelector("#progress-lucro");
+
+        const percentualInner = valorAtual.toFixed(1)
+        progressValue.innerText = percentualInner
+
+       
+       
     })
     
 }
