@@ -90,10 +90,13 @@ async function handleInputChange(){
 
     let html = ''
 
-    for(const produto of produtosFiltrado){
-      
-        html += `<tr><td>${produto.nome}</td><td>${produto.preco_compra.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
-        <td>${produto.preco_venda.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td><td>${converteData(produto.data_compra)}</td></tr>`
+    if (produtosFiltrado.length === 0) {
+        html = '<tr><td colspan="4">Produto não encontrado</td></tr>'
+    } else {
+        for (const produto of produtosFiltrado) {
+            html += `<tr><td>${produto.nome}</td><td>${produto.preco_compra.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
+            <td>${produto.preco_venda.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td><td>${converteData(produto.data_compra)}</td></tr>`
+        }
     }
 
     tableBody.innerHTML = html

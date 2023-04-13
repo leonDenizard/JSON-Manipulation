@@ -108,7 +108,9 @@ input{
     font-size: 1.1em;
     padding: 0.3em 1em;
     border-radius: 5px;
-    background-color: var(--secundary-color)
+    background-color: var(--secundary-color);
+    caret-color: var(--text-color);
+    color: var(--text-color);
 }
 input::placeholder{
     font-family: 'Poppins';
@@ -117,6 +119,7 @@ input::placeholder{
     font-size: 0.9em;
     text-align: center;
 }
+
 
 div.opcoes{
     position: absolute;
