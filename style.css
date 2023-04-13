@@ -50,10 +50,11 @@ h1{
 .material-symbols-outlined{
     scale: 1.5;
     color: var(--text-color);
+    user-select: none;
 }
 span#filter{
     scale: 1.2;
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
     margin-left: 15px;
     cursor: pointer;
     border-radius: 5px;
@@ -62,6 +63,7 @@ span#filter{
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 
 input{
@@ -70,7 +72,7 @@ input{
     font-size: 1.1em;
     padding: 0.3em 1em;
     border-radius: 5px;
-    background-color: var(--primary-color)
+    background-color: var(--secundary-color)
 }
 input::placeholder{
     font-family: 'Poppins';
@@ -103,7 +105,7 @@ div.opcoes::before{
     height: 12px;
     background-color: var(--secundary-color);
     top: -12px;
-    transform: translateX(550%);
+    transform: translateX(640%);
     clip-path: polygon(0 0, 50% 100%, 100% 0);
 
 }
@@ -169,7 +171,7 @@ section{
 }
 .wrapper-table::-webkit-scrollbar-thumb:hover {
     
-    background-color: #2d3142;
+    background-color: var(--text-color);
     /* background: linear-gradient(to bottom, #3c096c,#5a189a, #ff9e00); */
     border-radius: 15px;
     opacity: 0.1;

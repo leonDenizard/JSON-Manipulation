@@ -18,8 +18,9 @@
       <div class="opcoes">
         <ul>
           <li><label for="ordenarAz">Ordenar de [A-Z]</label><input id="ordenarAz" type="radio" name="orderBy"></li>
-          <li><label for="ordenaMenorPreco">Produto com menor preço</label><input id="ordenaMenorPreco" type="radio" name="orderBy"></li>
-          <li><label for="ordenaMaiorPreco"> Produto com maior preço</label><input id="ordenaMaiorPreco" type="radio" name="orderBy"></li>
+          <li><label for="ordenaMenorPreco">Produtos com menor preço</label><input id="ordenaMenorPreco" type="radio" name="orderBy"></li>
+          <li><label for="ordenaMaiorPreco"> Produtos com maior preço</label><input id="ordenaMaiorPreco" type="radio" name="orderBy"></li>
+          <li><label for="ordenaData">Ordenar por data de compra</label><input id="ordenaData" type="radio" name="orderBy"></li>
         </ul>
       </div>
     </div>
@@ -48,24 +49,24 @@
       <div class="wrapper-result">
         <h2>Total faturado</h2>
         <div class="result">
-          <h3 id="result">R$25000</h3>
-          <span>desenho</span>
+          <h3 id="total-faturado">R$25000</h3>
+          <progress id="faturado" value="0" max=(1000)></progress>
         </div>
       </div>
 
       <div class="wrapper-result">
-        <h2>Total faturado</h2>
+        <h2>Lucro líquido</h2>
         <div class="result">
-          <h3>R$25000</h3>
-          <span>desenho</span>
+          <h3 id="lucro-liquido">R$25000</h3>
+          <progress id="liquido" value="0" max=(1000)></progress>
         </div>
       </div>
 
       <div class="wrapper-result">
-        <h2>Total faturado</h2>
+        <h2>Pertecentual de lucro %</h2>
         <div class="result">
-          <h3>R$25000</h3>
-          <span>desenho</span>
+          <h3 id="percentual-de-lucro">%25000</h3>
+          <progress id="porcentagem" value="0" max=(1000)></progress>
         </div>
       </div>
     </section>

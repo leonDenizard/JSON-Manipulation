@@ -208,18 +208,24 @@ async function ordenaMaiorPreco(){
 radioOrdenaMaiorPreco.addEventListener('click', ordenaMaiorPreco)
 
 //percorrendo todas as divs que possuem a classe wrapper-result e aplcando uma classe active para criar a transição
-wrapperResult.forEach(r =>{
+wrapperResult.forEach((r, index) =>{
     r.addEventListener('click', ()=>{
         r.classList.toggle('active')
-        if(r.classList.contains('active')){
-            calculaFaturamento()
+        if(r.classList.contains('active') && index === 0){
+            calculaFaturamento(0)
+        }
+        if(r.classList.contains('active') && index === 1){
+            calcularLucroLiquido(1)
+        }
+        if(r.classList.contains('active') && index === 2){
+            calculaPorcentagemLucro(2)
         }
     })
 })
 
 //função responsavel por calcular a soma de todos produtos faturados
 
-async function calculaFaturamento(){
+async function calculaFaturamento(index){
     
     const response = await fetch('produtos.json')
     const data = await response.json()
@@ -232,6 +238,7 @@ async function calculaFaturamento(){
         return accumulator + valor.preco_venda
     }, 0)
 
+    //criado um intervalo de tempo que excuta de 0 até o valor final por 500 iterações a cada 5ms
     let valorAtual = 0;
     const intervalo = setInterval(()=>{
         valorAtual += totalFaturado / 500;
@@ -239,9 +246,73 @@ async function calculaFaturamento(){
             clearInterval(intervalo);
         }
         const totalFaturadoFormatado = valorAtual.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
-        const resultH3 = document.getElementById('result');
+        const resultH3 = document.getElementById('total-faturado');
         resultH3.innerText = totalFaturadoFormatado;
     }, 5)
     
 }
 
+
+//calula o lucroliquido(faturamento tatol - preco de compra total)
+async function calcularLucroLiquido(index){
+    const response = await fetch('produtos.json')
+    const data = await response.json()
+
+    const produtos = data.produtos
+
+    const totalComprado = produtos.reduce((accumulator, valor) =>{
+        return accumulator + valor.preco_compra
+    },0)
+
+    const totalFaturado = produtos.reduce((accumulator,valor) =>{
+        return accumulator + valor.preco_venda
+    }, 0)
+
+    const lucroTotal = totalFaturado-totalComprado
+
+    let valorAtual = 0
+    const intervalo = setInterval(()=>{
+        valorAtual += lucroTotal/500
+        if(valorAtual >= lucroTotal){
+            clearInterval(intervalo)
+        }
+        const lucroTotalFormatado = valorAtual.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+        const h3LuroLiquido = document.getElementById('lucro-liquido')
+        h3LuroLiquido.innerText = lucroTotalFormatado
+    })
+    
+}
+
+//calula o a porcentagem de lucro(lucroTotal/totalFaturado*100)
+async function calculaPorcentagemLucro(index){
+    const response = await fetch('produtos.json')
+    const data = await response.json()
+
+    const produtos = data.produtos
+
+    const totalComprado = produtos.reduce((accumulator, valor) =>{
+        return accumulator + valor.preco_compra
+    },0)
+
+    const totalFaturado = produtos.reduce((accumulator,valor) =>{
+        return accumulator + valor.preco_venda
+    }, 0)
+
+    const lucroTotal = totalFaturado-totalComprado
+
+
+    const percentual = ((lucroTotal/totalFaturado) * 100).toFixed(2)
+
+    let valorAtual = 0
+    const intervalo = setInterval(()=>{
+        valorAtual += percentual/500
+        if(valorAtual >= percentual){
+            clearInterval(intervalo)
+        }
+       
+        const percentualFormatodo = valorAtual.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+        const h3percentual = document.getElementById('percentual-de-lucro')
+        h3percentual.innerText = `% ${percentualFormatodo}`
+    })
+    
+}
