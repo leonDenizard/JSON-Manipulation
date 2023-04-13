@@ -382,7 +382,8 @@ async function calculaPorcentagemLucro(index){
        
         const percentualFormatodo = valorAtual.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
         const h3percentual = document.getElementById('percentual-de-lucro')
-        h3percentual.innerText = `% ${percentualFormatodo}`
+        console.log(percentualFormatodo)
+        h3percentual.innerText = `% ${percentual}`
 
         //atualizando o progressBar
         const progressBar = document.querySelector('.linear-lucro')
