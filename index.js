@@ -8,7 +8,16 @@ const divOpcoes = document.querySelector('.opcoes')
 const radioOrdenarAz = document.querySelector('#ordenarAz')
 const radioOrdenaMenorPreco = document.querySelector('#ordenaMenorPreco')
 const radioOrdenaMaiorPreco = document.querySelector('#ordenaMaiorPreco')
+const radioOrdenaData = document.querySelector('#ordenaData')
 const wrapperResult = document.querySelectorAll('.wrapper-result')
+const colorTheme = document.querySelector('#color-theme')
+
+
+colorTheme.addEventListener('click', changeTheme)
+
+function changeTheme(){
+    document.body.classList.toggle('dark')
+}
 
 async function loadData(){
     try{
@@ -83,8 +92,8 @@ async function handleInputChange(){
 
     for(const produto of produtosFiltrado){
       
-        html += `<tr><td>${produto.nome}</td><td>R$: ${produto.preco_compra.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})},00</td>
-        <td>R$: ${produto.preco_venda.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})},00</td><td>${converteData(produto.data_compra)}</td></tr>`
+        html += `<tr><td>${produto.nome}</td><td>${produto.preco_compra.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
+        <td>${produto.preco_venda.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td><td>${converteData(produto.data_compra)}</td></tr>`
     }
 
     tableBody.innerHTML = html
@@ -207,6 +216,36 @@ async function ordenaMaiorPreco(){
 
 radioOrdenaMaiorPreco.addEventListener('click', ordenaMaiorPreco)
 
+//ordena por data
+
+async function ordernaData(){
+
+    const response = await fetch('produtos.json')
+    const data = await response.json()
+
+    const produtos = data.produtos
+
+    produtos.sort((a, b) =>{
+        if(a.data_compra < b.data_compra) return -1
+        if(a.data_compra > b.data_compra) return  1
+        return 0
+    })
+
+    let html =''
+
+    for(const produto of produtos){
+
+        html += `<tr><td>${produto.nome}</td>
+        <td>${produto.preco_compra.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
+        <td>${produto.preco_venda.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
+        </td><td>${converteData(produto.data_compra)}</td></tr>`
+    }
+    tableBody.innerHTML = html
+}
+
+radioOrdenaData.addEventListener('click', ordernaData)
+
+
 //percorrendo todas as divs que possuem a classe wrapper-result e aplcando uma classe active para criar a transição
 wrapperResult.forEach((r, index) =>{
     r.addEventListener('click', ()=>{
@@ -253,7 +292,7 @@ async function calculaFaturamento(index){
         progressFatuardo.style.backgroundImage = `conic-gradient(
             #5a189a ${valorAtual * 0/ totalFaturado}%,
             #ff9e00 ${valorAtual * 60/ totalFaturado}%,
-            #5a189a ${valorAtual * 85/ totalFaturado }%,
+            #5a189a ${valorAtual * 95/ totalFaturado }%,
             #e5e5e5 0%)`;
 
         const progressValue = document.querySelector('#progress-faturado')
